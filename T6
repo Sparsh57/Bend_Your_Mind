@@ -1,0 +1,12 @@
+#lang racket
+(require "./forth.rkt")
+
+(define defns (box '())) ; Initialize once
+;; Task 6: Power Function
+(forth '(
+    (: dup 0 = (: drop drop 1) if (: xchg dup 1 - pow xchg * ) )
+    (def pow)
+) '() defns)
+
+;; Test power function
+(forth '(pow) '(3 2) defns) ; Output: '(8)

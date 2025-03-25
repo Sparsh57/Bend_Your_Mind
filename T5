@@ -1,0 +1,13 @@
+#lang racket
+(require "./forth.rkt")
+
+(define defns (box '())) ; Initialize once
+
+;; Task 5: Factorial
+(forth '(
+    (: dup 1 <= (: drop 1) if (: dup 1 - fact * ) )
+    (def fact)
+) '() defns)
+
+;; Test factorial
+(forth '(fact) '(5) defns) ; Output: '(120)
